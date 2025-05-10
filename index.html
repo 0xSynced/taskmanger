@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="login-section" class="container login-container">
+            <h1>Task Manager Login</h1>
+            <div id="login-message"></div>
+            <form id="login-form">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div id="tasks-section" class="container" style="display: none;">
+            <h1>Task Manager</h1>
+            <div id="welcome-message"></div>
+            <button id="logout-btn">Logout</button>
+            
+            <div id="admin-panel" style="display: none; background-color: #ffe6e6; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+                <h2>Admin Panel</h2>
+                <p>System settings and user management</p>
+                <button id="reset-db-btn">Reset Database</button>
+                <button id="view-all-users-btn">View All Users</button>
+                <div id="admin-results"></div>
+            </div>
+            
+            <div id="user-settings" style="background-color: #e6f2ff; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+                <h2>User Settings</h2>
+                <form id="settings-form">
+                    <div>
+                        <label for="user-id">User ID:</label>
+                        <input type="text" id="user-id" name="userId" readonly>
+                    </div>
+                    <div>
+                        <label for="display-name">Display Name:</label>
+                        <input type="text" id="display-name" name="displayName">
+                    </div>
+                    <div>
+                        <label for="role-param">Role Parameter:</label>
+                        <input type="text" id="role-param" name="roleParam">
+                    </div>
+                    <button type="submit">Update Settings</button>
+                </form>
+            </div>
+            
+            <h2>Add New Task</h2>
+            <form id="task-form">
+                <div>
+                    <label for="task-title">Title:</label>
+                    <input type="text" id="task-title" name="title" required>
+                </div>
+                <div>
+                    <label for="task-description">Description:</label>
+                    <textarea id="task-description" name="description" rows="3"></textarea>
+                </div>
+                <div>
+                    <label for="task-priority">Priority:</label>
+                    <select id="task-priority" name="priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <button type="submit">Add Task</button>
+            </form>
+
+            <h2>Task Search</h2>
+            <form id="search-form">
+                <div>
+                    <label for="search-query">Search tasks:</label>
+                    <input type="text" id="search-query" name="search" placeholder="Enter search term">
+                </div>
+                <button type="submit">Search</button>
+            </form>
+            <div id="search-results"></div>
+
+            <h2>Your Tasks</h2>
+            <table id="tasks-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tasks-list">
+                    <!-- Tasks will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
